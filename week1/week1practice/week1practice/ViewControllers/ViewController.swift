@@ -8,6 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var data: CountUpDownModel = CountUpDownModel(count: 1)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +18,7 @@ class ViewController: UIViewController {
     
     private lazy var counterView: CountUpDownView = {
         let view = CountUpDownView()
-        view.countLabel.text = "1"
+        view.countLabel.text = String(data.count)
         return view
     }()
 
