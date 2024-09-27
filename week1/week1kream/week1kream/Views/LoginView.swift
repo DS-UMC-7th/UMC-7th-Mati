@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginView: UIView {
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
@@ -17,11 +17,16 @@ class LoginView: UIView {
     
     private func addComponents() {
         self.addSubview(logoImageView)
+        self.addSubview(emailLabel)
         
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 126),
             logoImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 53),
             logoImageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -53),
+            
+            emailLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 87),
+            emailLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 45),
+            emailLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -45)
         ])
     }
     
@@ -37,6 +42,18 @@ class LoginView: UIView {
         logoView.translatesAutoresizingMaskIntoConstraints = false
         
         return logoView
+    }()
+    
+    // 이메일 주소 입력
+    public lazy var emailLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "이메일 주소"
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = UIColor.black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
     }()
 
 }
