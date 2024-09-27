@@ -23,6 +23,7 @@ class LoginView: UIView {
         self.addSubview(passwordTextField)
         self.addSubview(loginButton)
         self.addSubview(kakaoLoginButton)
+        self.addSubview(appleLoginButton)
         
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 126),
@@ -55,7 +56,12 @@ class LoginView: UIView {
             kakaoLoginButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 87),
             kakaoLoginButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 47.5),
             kakaoLoginButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -47.5),
-            kakaoLoginButton.heightAnchor.constraint(equalToConstant: 40)
+            kakaoLoginButton.heightAnchor.constraint(equalToConstant: 40),
+            
+            appleLoginButton.topAnchor.constraint(equalTo: kakaoLoginButton.bottomAnchor, constant: 22),
+            appleLoginButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 47.5),
+            appleLoginButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -47.5),
+            appleLoginButton.heightAnchor.constraint(equalToConstant: 40)
             
         ])
     }
@@ -161,6 +167,30 @@ class LoginView: UIView {
         button.layer.cornerRadius = 10
         
         button.setImage(UIImage(named: "kakao_logo"), for: .normal)
+        button.imageView?.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 16).isActive = true
+        button.imageView?.centerYAnchor.constraint(equalTo: button.centerYAnchor, constant: 0).isActive = true
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.imageView?.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
+    // 애플 로그인 버튼
+    public lazy var appleLoginButton: UIButton = {
+        let button = UIButton()
+        
+        button.setTitle("Apple로 로그인", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .bold)
+        button.setTitleColor(.black, for: .normal)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: -15.17, bottom: 0, right: 0)
+        
+        button.backgroundColor = .white
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1).cgColor
+        button.layer.cornerRadius = 10
+        
+        button.setImage(UIImage(named: "apple_logo"), for: .normal)
         button.imageView?.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 16).isActive = true
         button.imageView?.centerYAnchor.constraint(equalTo: button.centerYAnchor, constant: 0).isActive = true
         
