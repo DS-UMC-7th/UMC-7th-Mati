@@ -21,6 +21,7 @@ class LoginView: UIView {
         self.addSubview(emailTextField)
         self.addSubview(passwordLabel)
         self.addSubview(passwordTextField)
+        self.addSubview(loginButton)
         
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 126),
@@ -43,7 +44,13 @@ class LoginView: UIView {
             passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 8),
             passwordTextField.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 45),
             passwordTextField.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -45),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 34)
+            passwordTextField.heightAnchor.constraint(equalToConstant: 34),
+            
+            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 17),
+            loginButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 45),
+            loginButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -45),
+            loginButton.heightAnchor.constraint(equalToConstant: 38)
+            
         ])
     }
     
@@ -115,6 +122,20 @@ class LoginView: UIView {
         textfield.translatesAutoresizingMaskIntoConstraints = false
         
         return textfield
+    }()
+    
+    // 로그인 버튼
+    public lazy var loginButton: UIButton = {
+        let button = UIButton()
+        
+        button.setTitle("로그인", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        button.backgroundColor = UIColor(red: 217/255, green: 217/255, blue: 217/255, alpha: 1)
+        button.layer.cornerRadius = CGFloat(8)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
     }()
 
 }
