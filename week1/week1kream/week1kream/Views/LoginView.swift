@@ -22,6 +22,7 @@ class LoginView: UIView {
         self.addSubview(passwordLabel)
         self.addSubview(passwordTextField)
         self.addSubview(loginButton)
+        self.addSubview(kakaoLoginButton)
         
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 126),
@@ -49,7 +50,12 @@ class LoginView: UIView {
             loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 17),
             loginButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 45),
             loginButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -45),
-            loginButton.heightAnchor.constraint(equalToConstant: 38)
+            loginButton.heightAnchor.constraint(equalToConstant: 38),
+            
+            kakaoLoginButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 87),
+            kakaoLoginButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 47.5),
+            kakaoLoginButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -47.5),
+            kakaoLoginButton.heightAnchor.constraint(equalToConstant: 40)
             
         ])
     }
@@ -130,10 +136,36 @@ class LoginView: UIView {
         
         button.setTitle("로그인", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        
         button.backgroundColor = UIColor(red: 217/255, green: 217/255, blue: 217/255, alpha: 1)
         button.layer.cornerRadius = CGFloat(8)
         
         button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
+    // 카카오 로그인 버튼
+    public lazy var kakaoLoginButton: UIButton = {
+        let button = UIButton()
+        
+        button.setTitle("카카오로 로그인", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .bold)
+        button.setTitleColor(.black, for: .normal)
+        // 이미지 위치를 고정하면서 옆으로 밀린 타이틀을 다시 돌려놓음
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: -15, bottom: 0, right: 0)
+        
+        button.backgroundColor = .white
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1).cgColor
+        button.layer.cornerRadius = 10
+        
+        button.setImage(UIImage(named: "kakao_logo"), for: .normal)
+        button.imageView?.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 16).isActive = true
+        button.imageView?.centerYAnchor.constraint(equalTo: button.centerYAnchor, constant: 0).isActive = true
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.imageView?.translatesAutoresizingMaskIntoConstraints = false
         
         return button
     }()
