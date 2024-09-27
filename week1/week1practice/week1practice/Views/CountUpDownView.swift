@@ -13,6 +13,17 @@ class CountUpDownView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
+        self.addComponents()
+    }
+    
+    private func addComponents() {
+        self.addSubview(countLabel)
+        
+        NSLayoutConstraint.activate([
+            countLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 362),
+            countLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 111),
+            countLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -110)
+        ])
     }
     
     // 스토리보드를 사용할 경우에는 지원되지 않도록 함
