@@ -19,6 +19,8 @@ class LoginView: UIView {
         self.addSubview(logoImageView)
         self.addSubview(emailLabel)
         self.addSubview(emailTextField)
+        self.addSubview(passwordLabel)
+        self.addSubview(passwordTextField)
         
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 126),
@@ -32,7 +34,16 @@ class LoginView: UIView {
             emailTextField.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 8),
             emailTextField.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 45),
             emailTextField.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -45),
-            emailTextField.heightAnchor.constraint(equalToConstant: 34)
+            emailTextField.heightAnchor.constraint(equalToConstant: 34),
+            
+            passwordLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 17),
+            passwordLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 45),
+            passwordLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -45),
+            
+            passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 8),
+            passwordTextField.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 45),
+            passwordTextField.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -45),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 34)
         ])
     }
     
@@ -67,6 +78,34 @@ class LoginView: UIView {
         
         textfield.addLeftPadding()
         textfield.placeholder = "예) kream@kream.co.kr"
+        textfield.font = UIFont.systemFont(ofSize: 12)
+        
+        textfield.layer.borderWidth = 1
+        textfield.layer.borderColor = UIColor(red: 162/255, green: 162/255, blue: 162/255, alpha: 1).cgColor
+        textfield.layer.cornerRadius = CGFloat(15)
+        
+        textfield.translatesAutoresizingMaskIntoConstraints = false
+        
+        return textfield
+    }()
+    
+    // 비밀번호 입력
+    public lazy var passwordLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "비밀번호"
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = UIColor.black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    public lazy var passwordTextField: UITextField = {
+        let textfield = UITextField()
+        
+        textfield.addLeftPadding()
+        textfield.placeholder = "비밀번호를 입력해주세요"
         textfield.font = UIFont.systemFont(ofSize: 12)
         
         textfield.layer.borderWidth = 1
