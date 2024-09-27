@@ -18,11 +18,19 @@ class CountUpDownView: UIView {
     
     private func addComponents() {
         self.addSubview(countLabel)
+        self.addSubview(countDownButton)
+        self.addSubview(countUpButton)
         
         NSLayoutConstraint.activate([
             countLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 362),
             countLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 111),
-            countLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -110)
+            countLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -110),
+            
+            countDownButton.topAnchor.constraint(equalTo: countLabel.bottomAnchor, constant: 17),
+            countDownButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 93),
+            
+            countUpButton.topAnchor.constraint(equalTo: countLabel.bottomAnchor, constant: 17),
+            countUpButton.leftAnchor.constraint(equalTo: countDownButton.rightAnchor, constant: 7)
         ])
     }
     
