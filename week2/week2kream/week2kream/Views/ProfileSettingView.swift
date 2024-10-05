@@ -65,6 +65,7 @@ class ProfileSettingView: UIView {
         userEmailButton.snp.makeConstraints {
             $0.centerY.equalTo(userEmailTextField)
             $0.leading.equalTo(userEmailTextField.snp.trailing).offset(9)
+            $0.right.equalToSuperview().offset(-17)
             $0.width.equalTo(58)
             $0.height.equalTo(32)
         }
@@ -85,6 +86,7 @@ class ProfileSettingView: UIView {
         userPasswordButton.snp.makeConstraints {
             $0.centerY.equalTo(userPasswordTextField)
             $0.leading.equalTo(userPasswordTextField.snp.trailing).offset(9)
+            $0.right.equalToSuperview().offset(-17)
             $0.width.equalTo(58)
             $0.height.equalTo(32)
         }

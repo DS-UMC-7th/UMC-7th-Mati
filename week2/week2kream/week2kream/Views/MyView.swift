@@ -71,6 +71,7 @@ class MyView: UIView {
         
         profileShareButton.snp.makeConstraints {
             $0.leading.equalTo(profileSettingButton.snp.trailing).offset(14)
+            $0.right.equalToSuperview().offset(-32.5)
             $0.centerY.equalTo(profileSettingButton)
             $0.width.equalTo(157)
             $0.height.equalTo(26)
