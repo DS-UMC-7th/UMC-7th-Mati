@@ -12,6 +12,7 @@ class MyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = myView
+        myView.delegate = self
     }
     
     private lazy var myView: MyView = {

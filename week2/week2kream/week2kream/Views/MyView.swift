@@ -9,7 +9,8 @@ import UIKit
 import SnapKit
 
 class MyView: UIView {
-
+    var delegate: UIViewController?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
@@ -171,8 +172,16 @@ class MyView: UIView {
         button.layer.borderColor = UIColor(red: 213/255, green: 213/255, blue: 213/255, alpha: 1).cgColor
         button.layer.cornerRadius = 8
         
+        button.addTarget(self, action: #selector(profileSettingButtonDidTap), for: .touchUpInside)
         return button
     }()
+    
+    @objc
+    private func profileSettingButtonDidTap() {
+        let profileSettingVC = ProfileSettingViewController()
+        delegate?.navigationController?.isNavigationBarHidden = true // 커스텀하기 위해 기본 바 숨김 처리
+        delegate?.navigationController?.pushViewController(profileSettingVC, animated: true)
+    }
     
     // 프로필 공유 버튼
     private lazy var profileShareButton: UIButton = {
