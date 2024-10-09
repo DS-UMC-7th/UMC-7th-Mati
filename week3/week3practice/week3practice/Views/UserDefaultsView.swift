@@ -81,7 +81,7 @@ class UserDefaultsView: UIView {
     }()
     
     // 텍스트필드
-    private lazy var inputTextField: UITextField = {
+    public lazy var inputTextField: UITextField = {
         let textField = UITextField()
         
         textField.placeholder = "아무 텍스트나 입력해주세요"
@@ -99,7 +99,7 @@ class UserDefaultsView: UIView {
     }()
     
     // 저장 버튼
-    private lazy var saveButton: UIButton = {
+    public lazy var saveButton: UIButton = {
         let button = UIButton()
         
         button.setTitle("UserDefaults에 저장하기", for: .normal)
@@ -139,7 +139,7 @@ class UserDefaultsView: UIView {
     }()
     
     // 출력 결과
-    private lazy var resultLabel: UILabel = {
+    public lazy var resultLabel: UILabel = {
         let label = UILabel()
         
         label.text = "UserDefaults 값이 출력됩니다."
