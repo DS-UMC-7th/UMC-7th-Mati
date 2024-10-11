@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 class DiceCell: UITableViewCell {
+    
+    static let identifier = "DiceCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()
