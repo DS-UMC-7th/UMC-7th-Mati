@@ -106,6 +106,7 @@ class LoginView: UIView {
         textfield.layer.cornerRadius = CGFloat(15)
         
         textfield.translatesAutoresizingMaskIntoConstraints = false
+        textfield.autocapitalizationType = .none
         
         return textfield
     }()
@@ -136,6 +137,7 @@ class LoginView: UIView {
         textfield.isSecureTextEntry = true
         
         textfield.translatesAutoresizingMaskIntoConstraints = false
+        textfield.autocapitalizationType = .none
         
         return textfield
     }()

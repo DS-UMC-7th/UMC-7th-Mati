@@ -174,6 +174,7 @@ class ProfileSettingView: UIView {
         textfield.isUserInteractionEnabled = false
         
         textfield.translatesAutoresizingMaskIntoConstraints = false
+        textfield.autocapitalizationType = .none
         
         return textfield
     }()
@@ -238,6 +239,7 @@ class ProfileSettingView: UIView {
         textfield.isUserInteractionEnabled = false
         
         textfield.translatesAutoresizingMaskIntoConstraints = false
+        textfield.autocapitalizationType = .none
         
         return textfield
     }()
