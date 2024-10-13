@@ -104,7 +104,7 @@ class SaveCell: UITableViewCell {
         goodsImage.snp.makeConstraints {
             $0.top.equalToSuperview().offset(13)
             $0.left.equalToSuperview().offset(13)
-            $0.bottom.equalToSuperview().offset(14)
+            $0.bottom.equalToSuperview().offset(-14)
             $0.width.height.equalTo(72)
         }
         
@@ -122,8 +122,8 @@ class SaveCell: UITableViewCell {
         }
         
         goodsPrice.snp.makeConstraints {
-            $0.bottom.equalToSuperview().offset(10)
-            $0.right.equalToSuperview().offset(16)
+            $0.bottom.equalToSuperview().offset(-10)
+            $0.right.equalToSuperview().offset(-16)
             $0.height.equalTo(22)
         }
         

@@ -8,22 +8,42 @@
 import UIKit
 
 class SavedViewController: UIViewController {
+    
+    let data = dummySaveModel.saveDatas
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.view = saveView
     }
     
+    private lazy var saveView: SaveView = {
+        let view = SaveView()
+        
+        view.tableView.dataSource = self
+        view.tableView.delegate = self
+        
+        return view
+    }()
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+// MARK: - dataSource, delegate 구현
+extension SavedViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        data.count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SaveCell.identifier, for: indexPath) as? SaveCell else {
+            return UITableViewCell()
+        }
+        
+        cell.configure(model: data[indexPath.row])
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        99
+    }
 }
