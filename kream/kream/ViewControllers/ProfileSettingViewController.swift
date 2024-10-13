@@ -18,7 +18,7 @@ class ProfileSettingViewController: UIViewController {
         loadUserInfo()
     }
     
-    private lazy var profileSettingView: ProfileSettingView = {
+    public lazy var profileSettingView: ProfileSettingView = {
         let view = ProfileSettingView()
         return view
     }()

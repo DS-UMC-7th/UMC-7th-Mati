@@ -180,6 +180,7 @@ class MyView: UIView {
     @objc
     private func profileSettingButtonDidTap() {
         let profileSettingVC = ProfileSettingViewController()
+        profileSettingVC.profileSettingView.profileImageView.image = profileImageView.image
         delegate?.navigationController?.isNavigationBarHidden = true // 커스텀하기 위해 기본 바 숨김 처리
         delegate?.navigationController?.pushViewController(profileSettingVC, animated: true)
     }

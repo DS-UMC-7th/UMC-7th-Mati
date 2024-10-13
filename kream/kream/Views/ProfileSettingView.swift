@@ -126,10 +126,9 @@ class ProfileSettingView: UIView {
     }()
     
     // 프로필 사진
-    private lazy var profileImageView: UIImageView = {
+    public lazy var profileImageView: UIImageView = {
         let image = UIImageView()
         
-        image.image = UIImage(named: "profile_image")
         image.layer.cornerRadius = 45
         image.translatesAutoresizingMaskIntoConstraints = false
         
