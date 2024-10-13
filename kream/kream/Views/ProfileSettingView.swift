@@ -159,7 +159,7 @@ class ProfileSettingView: UIView {
         return label
     }()
     
-    private lazy var userEmailTextField: UITextField = {
+    public lazy var userEmailTextField: UITextField = {
         let textfield = UITextField()
         
         textfield.addLeftPadding()
@@ -204,7 +204,7 @@ class ProfileSettingView: UIView {
         return label
     }()
     
-    private lazy var userPasswordTextField: UITextField = {
+    public lazy var userPasswordTextField: UITextField = {
         let textfield = UITextField()
         
         textfield.addLeftPadding()

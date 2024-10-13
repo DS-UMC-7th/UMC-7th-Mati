@@ -8,16 +8,29 @@
 import UIKit
 
 class ProfileSettingViewController: UIViewController {
+    
+    private let loginModel = LoginModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = profileSettingView
         profileSettingView.delegate = self
+        loadUserInfo()
     }
     
     private lazy var profileSettingView: ProfileSettingView = {
         let view = ProfileSettingView()
         return view
     }()
+    
+    private func loadUserInfo() {
+        if let savedEmail = loginModel.loadEmail() {
+            profileSettingView.userEmailTextField.text = savedEmail
+        }
+        
+        if let savedPassword = loginModel.loadPassword() {
+            profileSettingView.userPasswordTextField.text = savedPassword
+        }
+    }
 
 }
