@@ -9,6 +9,7 @@ import UIKit
 
 class LoginView: UIView {
     var delegate: UIViewController? // 프레젠트 처리 위한 델리게이트
+    private let loginModel = LoginModel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -156,6 +157,16 @@ class LoginView: UIView {
     
     @objc
     private func loginButtonDidTap() {
+        guard let email = emailTextField.text, !email.isEmpty else {
+            return
+        }
+        guard let password = passwordTextField.text, !password.isEmpty else {
+            return
+        }
+        
+        loginModel.saveEmail(email)
+        loginModel.savePassword(password)
+        
         let mainVC = MainViewController()
         mainVC.modalPresentationStyle = .fullScreen
         delegate?.present(mainVC, animated: true)

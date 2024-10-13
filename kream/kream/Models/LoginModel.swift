@@ -7,7 +7,7 @@
 
 import Foundation
 
-class userModel {
+class LoginModel {
     private let userDefaults = UserDefaults.standard
     private let email: String = ""
     private let password: String = ""
