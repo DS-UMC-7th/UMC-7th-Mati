@@ -9,6 +9,7 @@ import UIKit
 
 class ProfileSettingView: UIView {
     var delegate: UIViewController?
+    private let loginModel = LoginModel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -197,8 +198,17 @@ class ProfileSettingView: UIView {
     }()
     
     @objc func userEmailButtonClicked() {
-        userEmailButton.setTitle("확인", for: .normal)
-        userEmailTextField.isUserInteractionEnabled = true
+        if userEmailButton.titleLabel?.text == "변경" {
+            userEmailButton.setTitle("확인", for: .normal)
+            userEmailTextField.isUserInteractionEnabled = true
+        } else {
+            guard let email = userEmailTextField.text, !email.isEmpty else {
+                return
+            }
+            loginModel.saveEmail(email)
+            userEmailTextField.isUserInteractionEnabled = false
+        }
+        
     }
     
     // 유저 비밀번호
@@ -252,7 +262,16 @@ class ProfileSettingView: UIView {
     }()
     
     @objc func userPasswordButtonClicked() {
-        userPasswordButton.setTitle("확인", for: .normal)
-        userPasswordTextField.isUserInteractionEnabled = true
+        if userPasswordButton.titleLabel?.text == "변경" {
+            userPasswordButton.setTitle("확인", for: .normal)
+            userPasswordTextField.isUserInteractionEnabled = true
+        } else {
+            guard let password = userPasswordTextField.text, !password.isEmpty else {
+                return
+            }
+            loginModel.savePassword(password)
+            userPasswordTextField.isUserInteractionEnabled = false
+        }
+        
     }
 }
