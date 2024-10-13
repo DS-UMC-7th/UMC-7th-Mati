@@ -171,6 +171,8 @@ class ProfileSettingView: UIView {
         textfield.layer.borderColor = UIColor(red: 213/255, green: 213/255, blue: 213/255, alpha: 1).cgColor
         textfield.layer.cornerRadius = 10
         
+        textfield.isUserInteractionEnabled = false
+        
         textfield.translatesAutoresizingMaskIntoConstraints = false
         
         return textfield
@@ -189,8 +191,15 @@ class ProfileSettingView: UIView {
         
         button.translatesAutoresizingMaskIntoConstraints = false
         
+        button.addTarget(self, action: #selector(userEmailButtonClicked), for: .touchUpInside)
+        
         return button
     }()
+    
+    @objc func userEmailButtonClicked() {
+        userEmailButton.setTitle("확인", for: .normal)
+        userEmailTextField.isUserInteractionEnabled = true
+    }
     
     // 유저 비밀번호
     private lazy var userPasswordLabel: UILabel = {
@@ -217,6 +226,7 @@ class ProfileSettingView: UIView {
         textfield.layer.cornerRadius = 10
         
         textfield.isSecureTextEntry = true
+        textfield.isUserInteractionEnabled = false
         
         textfield.translatesAutoresizingMaskIntoConstraints = false
         
@@ -236,6 +246,13 @@ class ProfileSettingView: UIView {
         
         button.translatesAutoresizingMaskIntoConstraints = false
         
+        button.addTarget(self, action: #selector(userPasswordButtonClicked), for: .touchUpInside)
+        
         return button
     }()
+    
+    @objc func userPasswordButtonClicked() {
+        userPasswordButton.setTitle("확인", for: .normal)
+        userPasswordTextField.isUserInteractionEnabled = true
+    }
 }
