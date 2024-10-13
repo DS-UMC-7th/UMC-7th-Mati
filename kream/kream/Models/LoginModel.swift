@@ -9,22 +9,22 @@ import Foundation
 
 class LoginModel {
     private let userDefaults = UserDefaults.standard
-    private let email: String = ""
-    private let password: String = ""
+    private let emailKey: String = "email"
+    private let passwordKey: String = "password"
     
     public func saveEmail(_ text: String) {
-        userDefaults.set(text, forKey: email)
+        userDefaults.set(text, forKey: emailKey)
     }
     
     public func savePassword(_ text: String) {
-        userDefaults.set(text, forKey: password)
+        userDefaults.set(text, forKey: passwordKey)
     }
     
     public func loadEmail() -> String? {
-        return userDefaults.string(forKey: email)
+        return userDefaults.string(forKey: emailKey)
     }
     
     public func loadPassword() -> String? {
-        return userDefaults.string(forKey: password)
+        return userDefaults.string(forKey: passwordKey)
     }
 }
