@@ -68,6 +68,7 @@ class SaveCell: UITableViewCell {
         
         label.font = UIFont.systemFont(ofSize: 9, weight: .medium)
         label.textColor = UIColor(red: 161/255, green: 161/255, blue: 161/255, alpha: 1)
+        label.numberOfLines = 2
         
         return label
     }()
