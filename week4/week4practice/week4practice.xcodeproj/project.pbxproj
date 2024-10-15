@@ -7,32 +7,32 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		233D1A942CBEA3B000B8B5C3 /* week4UISegmentedControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = week4UISegmentedControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		233D1AB52CBEA54B00B8B5C3 /* week4practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = week4practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		233D1AA62CBEA3B300B8B5C3 /* Exceptions for "week4UISegmentedControl" folder in "week4UISegmentedControl" target */ = {
+		233D1AC72CBEA54C00B8B5C3 /* Exceptions for "week4practice" folder in "week4practice" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 233D1A932CBEA3B000B8B5C3 /* week4UISegmentedControl */;
+			target = 233D1AB42CBEA54B00B8B5C3 /* week4practice */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		233D1A962CBEA3B000B8B5C3 /* week4UISegmentedControl */ = {
+		233D1AB72CBEA54B00B8B5C3 /* week4practice */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				233D1AA62CBEA3B300B8B5C3 /* Exceptions for "week4UISegmentedControl" folder in "week4UISegmentedControl" target */,
+				233D1AC72CBEA54C00B8B5C3 /* Exceptions for "week4practice" folder in "week4practice" target */,
 			);
-			path = week4UISegmentedControl;
+			path = week4practice;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		233D1A912CBEA3B000B8B5C3 /* Frameworks */ = {
+		233D1AB22CBEA54B00B8B5C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,18 +42,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		233D1A8B2CBEA3B000B8B5C3 = {
+		233D1AAC2CBEA54B00B8B5C3 = {
 			isa = PBXGroup;
 			children = (
-				233D1A962CBEA3B000B8B5C3 /* week4UISegmentedControl */,
-				233D1A952CBEA3B000B8B5C3 /* Products */,
+				233D1AB72CBEA54B00B8B5C3 /* week4practice */,
+				233D1AB62CBEA54B00B8B5C3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		233D1A952CBEA3B000B8B5C3 /* Products */ = {
+		233D1AB62CBEA54B00B8B5C3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				233D1A942CBEA3B000B8B5C3 /* week4UISegmentedControl.app */,
+				233D1AB52CBEA54B00B8B5C3 /* week4practice.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,64 +61,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		233D1A932CBEA3B000B8B5C3 /* week4UISegmentedControl */ = {
+		233D1AB42CBEA54B00B8B5C3 /* week4practice */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 233D1AA72CBEA3B300B8B5C3 /* Build configuration list for PBXNativeTarget "week4UISegmentedControl" */;
+			buildConfigurationList = 233D1AC82CBEA54C00B8B5C3 /* Build configuration list for PBXNativeTarget "week4practice" */;
 			buildPhases = (
-				233D1A902CBEA3B000B8B5C3 /* Sources */,
-				233D1A912CBEA3B000B8B5C3 /* Frameworks */,
-				233D1A922CBEA3B000B8B5C3 /* Resources */,
+				233D1AB12CBEA54B00B8B5C3 /* Sources */,
+				233D1AB22CBEA54B00B8B5C3 /* Frameworks */,
+				233D1AB32CBEA54B00B8B5C3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				233D1A962CBEA3B000B8B5C3 /* week4UISegmentedControl */,
+				233D1AB72CBEA54B00B8B5C3 /* week4practice */,
 			);
-			name = week4UISegmentedControl;
+			name = week4practice;
 			packageProductDependencies = (
 			);
-			productName = week4UISegmentedControl;
-			productReference = 233D1A942CBEA3B000B8B5C3 /* week4UISegmentedControl.app */;
+			productName = week4practice;
+			productReference = 233D1AB52CBEA54B00B8B5C3 /* week4practice.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		233D1A8C2CBEA3B000B8B5C3 /* Project object */ = {
+		233D1AAD2CBEA54B00B8B5C3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
-					233D1A932CBEA3B000B8B5C3 = {
+					233D1AB42CBEA54B00B8B5C3 = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
-			buildConfigurationList = 233D1A8F2CBEA3B000B8B5C3 /* Build configuration list for PBXProject "week4UISegmentedControl" */;
+			buildConfigurationList = 233D1AB02CBEA54B00B8B5C3 /* Build configuration list for PBXProject "week4practice" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 233D1A8B2CBEA3B000B8B5C3;
+			mainGroup = 233D1AAC2CBEA54B00B8B5C3;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 233D1A952CBEA3B000B8B5C3 /* Products */;
+			productRefGroup = 233D1AB62CBEA54B00B8B5C3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				233D1A932CBEA3B000B8B5C3 /* week4UISegmentedControl */,
+				233D1AB42CBEA54B00B8B5C3 /* week4practice */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		233D1A922CBEA3B000B8B5C3 /* Resources */ = {
+		233D1AB32CBEA54B00B8B5C3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -128,7 +128,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		233D1A902CBEA3B000B8B5C3 /* Sources */ = {
+		233D1AB12CBEA54B00B8B5C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -138,7 +138,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		233D1AA82CBEA3B300B8B5C3 /* Debug */ = {
+		233D1AC92CBEA54C00B8B5C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -146,7 +146,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = week4UISegmentedControl/Info.plist;
+				INFOPLIST_FILE = week4practice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -156,7 +156,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.umc.week4UISegmentedControl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.umc.week4practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -164,7 +164,7 @@
 			};
 			name = Debug;
 		};
-		233D1AA92CBEA3B300B8B5C3 /* Release */ = {
+		233D1ACA2CBEA54C00B8B5C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -172,7 +172,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = week4UISegmentedControl/Info.plist;
+				INFOPLIST_FILE = week4practice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -182,7 +182,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.umc.week4UISegmentedControl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.umc.week4practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -190,7 +190,7 @@
 			};
 			name = Release;
 		};
-		233D1AAA2CBEA3B300B8B5C3 /* Debug */ = {
+		233D1ACB2CBEA54C00B8B5C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -253,7 +253,7 @@
 			};
 			name = Debug;
 		};
-		233D1AAB2CBEA3B300B8B5C3 /* Release */ = {
+		233D1ACC2CBEA54C00B8B5C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -312,25 +312,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		233D1A8F2CBEA3B000B8B5C3 /* Build configuration list for PBXProject "week4UISegmentedControl" */ = {
+		233D1AB02CBEA54B00B8B5C3 /* Build configuration list for PBXProject "week4practice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				233D1AAA2CBEA3B300B8B5C3 /* Debug */,
-				233D1AAB2CBEA3B300B8B5C3 /* Release */,
+				233D1ACB2CBEA54C00B8B5C3 /* Debug */,
+				233D1ACC2CBEA54C00B8B5C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		233D1AA72CBEA3B300B8B5C3 /* Build configuration list for PBXNativeTarget "week4UISegmentedControl" */ = {
+		233D1AC82CBEA54C00B8B5C3 /* Build configuration list for PBXNativeTarget "week4practice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				233D1AA82CBEA3B300B8B5C3 /* Debug */,
-				233D1AA92CBEA3B300B8B5C3 /* Release */,
+				233D1AC92CBEA54C00B8B5C3 /* Debug */,
+				233D1ACA2CBEA54C00B8B5C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 233D1A8C2CBEA3B000B8B5C3 /* Project object */;
+	rootObject = 233D1AAD2CBEA54B00B8B5C3 /* Project object */;
 }

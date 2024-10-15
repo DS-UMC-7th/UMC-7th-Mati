@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  week4UISegmentedControl
+//  week4practice
 //
 //  Created by 김미주 on 15/10/2024.
 //
