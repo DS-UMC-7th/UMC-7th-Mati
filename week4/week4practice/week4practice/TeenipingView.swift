@@ -34,7 +34,14 @@ class TeenipingView: UIView {
     }
     
     // CollectionView
-    // let teenipingCollectionView = UICollectionView()
+    let teenipingCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
+        $0.estimatedItemSize = .init(width: 162, height: 144)
+        $0.minimumInteritemSpacing = 12
+    }).then {
+        $0.backgroundColor = .clear
+        $0.isScrollEnabled = false
+        $0.register(TeenipingCollectionViewCell.self, forCellWithReuseIdentifier: TeenipingCollectionViewCell.identifier)
+    }
     
     // 구분선
     private let divideLine = UIView().then {
@@ -42,10 +49,11 @@ class TeenipingView: UIView {
     }
     
     // 휑~
-    private let emptyLabel = UILabel().then {
+    let emptyLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 24, weight: .medium)
         $0.textColor = .black
         $0.text = "휑~"
+        $0.isHidden = true
     }
     
     override init(frame: CGRect) {
@@ -62,7 +70,7 @@ class TeenipingView: UIView {
     private func setupView() {
         [
             segmentedControl,
-            // teenipingCollectionView,
+            teenipingCollectionView,
             divideLine,
             emptyLabel
         ].forEach {
@@ -80,11 +88,11 @@ class TeenipingView: UIView {
             $0.height.equalTo(0.7)
         }
         
-        //        teenipingCollectionView.snp.makeConstraints {
-        //            $0.top.equalTo(divideLine.snp.bottom).offset(20)
-        //            $0.horizontalEdges.equalToSuperview().inset(19)
-        //            $0.bottom.equalToSuperview().inset(74)
-        //        }
+        teenipingCollectionView.snp.makeConstraints {
+            $0.top.equalTo(divideLine.snp.bottom).offset(20)
+            $0.horizontalEdges.equalToSuperview().inset(19)
+            $0.bottom.equalToSuperview().inset(74)
+        }
         
         emptyLabel.snp.makeConstraints {
             $0.top.equalTo(divideLine.snp.bottom).offset(301)
