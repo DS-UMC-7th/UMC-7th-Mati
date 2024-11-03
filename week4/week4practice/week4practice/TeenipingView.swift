@@ -6,15 +6,89 @@
 //
 
 import UIKit
+import Then
+import SnapKit
 
 class TeenipingView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    // segmentedControl
+    let segmentedControl = UISegmentedControl(items: ["티니핑", "not 티니핑"]).then {
+        // $0.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)
+        $0.setBackgroundImage(UIImage(), for: .selected, barMetrics: .default)
+        $0.setBackgroundImage(UIImage(), for: .highlighted, barMetrics: .default)
+        $0.setDividerImage(UIImage(), forLeftSegmentState: .selected, rightSegmentState: .normal, barMetrics: .default)
+        $0.selectedSegmentIndex = 0
+        $0.setTitleTextAttributes(
+            [
+                NSAttributedString.Key.foregroundColor: UIColor.black,
+                .font: UIFont.systemFont(ofSize: 16, weight: .light)
+            ],
+            for: .normal
+        )
+        $0.setTitleTextAttributes(
+            [
+                NSAttributedString.Key.foregroundColor: UIColor.black,
+                .font: UIFont.systemFont(ofSize: 16, weight: .bold)
+            ],
+            for: .selected
+        )
     }
-    */
-
+    
+    // CollectionView
+    // let teenipingCollectionView = UICollectionView()
+    
+    // 구분선
+    private let divideLine = UIView().then {
+        $0.backgroundColor = .black
+    }
+    
+    // 휑~
+    private let emptyLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 24, weight: .medium)
+        $0.textColor = .black
+        $0.text = "휑~"
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .white
+        
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Init(coder:) has not been implemented")
+    }
+    
+    private func setupView() {
+        [
+            segmentedControl,
+            // teenipingCollectionView,
+            divideLine,
+            emptyLabel
+        ].forEach {
+            addSubview($0)
+        }
+        
+        segmentedControl.snp.makeConstraints {
+            $0.top.equalTo(safeAreaLayoutGuide).offset(20)
+            $0.centerX.equalToSuperview()
+        }
+        
+        divideLine.snp.makeConstraints {
+            $0.top.equalTo(segmentedControl.snp.bottom).offset(20)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(0.7)
+        }
+        
+        //        teenipingCollectionView.snp.makeConstraints {
+        //            $0.top.equalTo(divideLine.snp.bottom).offset(20)
+        //            $0.horizontalEdges.equalToSuperview().inset(19)
+        //            $0.bottom.equalToSuperview().inset(74)
+        //        }
+        
+        emptyLabel.snp.makeConstraints {
+            $0.top.equalTo(divideLine.snp.bottom).offset(301)
+            $0.centerX.equalToSuperview()
+        }
+    }
 }
