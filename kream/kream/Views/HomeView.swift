@@ -44,6 +44,12 @@ class HomeView: UIView {
         $0.backgroundColor = .black
     }
     
+    // 스크롤뷰
+    let scrollView = UIScrollView().then {
+        $0.showsVerticalScrollIndicator = false
+        $0.showsHorizontalScrollIndicator = true
+    }
+    
     // 광고 이미지
     let adImage = UIImageView().then {
         $0.image = UIImage(named: "image_ad")
@@ -93,11 +99,20 @@ class HomeView: UIView {
         $0.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
     }
     
-    // 스크롤뷰
-    let scrollView = UIScrollView().then {
-        $0.showsVerticalScrollIndicator = false
-        $0.showsHorizontalScrollIndicator = true
+    // 한파대비
+    let challengeTitleLabel = UILabel().then {
+        $0.text = "본격 한파대비! 연말 필수템 모음"
+        $0.font = .systemFont(ofSize: 16, weight: .semibold)
+        $0.textColor = .black
     }
+    
+    let challengeSubLabel = UILabel().then {
+        $0.text = "#해피홀리룩챌린지"
+        $0.font = .systemFont(ofSize: 13, weight: .light)
+        $0.textColor = UIColor(red: 135/255, green: 135/255, blue: 135/255, alpha: 1)
+    }
+    
+    // 컬렉션뷰3
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -164,7 +179,9 @@ class HomeView: UIView {
             justTitleLabel,
             justSubLabel,
             justCollectionView,
-            divideLine2
+            divideLine2,
+            challengeTitleLabel,
+            challengeSubLabel
         ].forEach {
             scrollView.addSubview($0)
         }
@@ -208,6 +225,16 @@ class HomeView: UIView {
             $0.top.equalTo(justCollectionView.snp.bottom).offset(30)
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(1)
+        }
+        
+        challengeTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(divideLine2.snp.bottom).offset(20)
+            $0.left.equalToSuperview().offset(16)
+        }
+        
+        challengeSubLabel.snp.makeConstraints {
+            $0.top.equalTo(challengeTitleLabel.snp.bottom).offset(4)
+            $0.left.equalToSuperview().offset(16)
         }
     }
 
