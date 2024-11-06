@@ -15,11 +15,24 @@ class HomeViewController: UIViewController {
 
         view = homeView
         
+        setupAction()
         setupDelegate()
+    }
+    
+    private func setupAction() {
+        homeView.searchBar.addTarget(self, action: #selector(searchBarTapped), for: .editingDidBegin)
     }
     
     private func setupDelegate() {
         homeView.collectionView.dataSource = self
+    }
+    
+    @objc
+    private func searchBarTapped() {
+        print("seachBarTapped")
+        let searchVC = SearchViewController()
+        searchVC.modalPresentationStyle = .fullScreen
+        present(searchVC, animated: true)
     }
 
 }
