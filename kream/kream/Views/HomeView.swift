@@ -24,7 +24,9 @@ class HomeView: UIView {
     }
     
     // 메뉴
-    let menuBar = UISegmentedControl(items: ["추천", "랭킹", "발매정보", "럭셔리", "남성", "여성"])
+    let menuBar = UISegmentedControl(items: ["추천", "랭킹", "발매정보", "럭셔리", "남성", "여성"]).then {
+        $0.selectedSegmentIndex = 0
+    }
     
     // 광고 이미지
     let adImage = UIImageView().then {

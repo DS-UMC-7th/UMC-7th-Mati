@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
     
     private func setupAction() {
         homeView.searchBar.addTarget(self, action: #selector(searchBarTapped), for: .editingDidBegin)
+        homeView.menuBar.addTarget(self, action: #selector(segmentedControlValueChanged(segment:)), for: .valueChanged)
     }
     
     private func setupDelegate() {
@@ -33,6 +34,20 @@ class HomeViewController: UIViewController {
         let searchVC = SearchViewController()
         searchVC.modalPresentationStyle = .fullScreen
         present(searchVC, animated: true)
+    }
+    
+    @objc
+    private func segmentedControlValueChanged(segment: UISegmentedControl) {
+        if segment.selectedSegmentIndex == 0 {
+            homeView.adImage.isHidden = false
+            homeView.collectionView.isHidden = false
+            homeView.divideLine.isHidden = false
+        }
+        else {
+            homeView.adImage.isHidden = true
+            homeView.collectionView.isHidden = true
+            homeView.divideLine.isHidden = true
+        }
     }
 
 }
