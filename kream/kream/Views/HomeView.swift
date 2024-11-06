@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 import Then
 
 class HomeView: UIView {
@@ -51,7 +52,7 @@ class HomeView: UIView {
     // 컬렉션뷰
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
         $0.estimatedItemSize = .init(width: 61, height: 81)
-        $0.minimumLineSpacing = 9
+        $0.minimumInteritemSpacing = 9
     }).then {
         $0.backgroundColor = .clear
         $0.isScrollEnabled = false
@@ -63,10 +64,30 @@ class HomeView: UIView {
         $0.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
     }
     
+    // Just Dropped
+    
+    // 컬렉션뷰2
+    let justCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
+        $0.scrollDirection = .horizontal // 셀 가로로 배치
+        $0.estimatedItemSize = .init(width: 142, height: 237)
+        $0.minimumInteritemSpacing = 8
+    }).then {
+        $0.backgroundColor = .clear
+        $0.isScrollEnabled = true
+        $0.register(JustDroppedCollectionViewCell.self, forCellWithReuseIdentifier: JustDroppedCollectionViewCell.identifier)
+    }
+    
+    // 스크롤뷰
+    let scrollView = UIScrollView().then {
+        $0.showsVerticalScrollIndicator = false
+        $0.showsHorizontalScrollIndicator = true
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
         
+        setupScrollView()
         setupView()
     }
     
@@ -80,9 +101,7 @@ class HomeView: UIView {
             alertImgae,
             menuBar,
             underLine,
-            adImage,
-            collectionView,
-            divideLine
+            scrollView
         ].forEach {
             addSubview($0)
         }
@@ -114,8 +133,25 @@ class HomeView: UIView {
             $0.height.equalTo(2)
         }
         
-        adImage.snp.makeConstraints {
+        scrollView.snp.makeConstraints {
             $0.top.equalTo(underLine.snp.bottom)
+            $0.left.right.equalToSuperview()
+            $0.bottom.equalTo(safeAreaLayoutGuide)
+        }
+    }
+    
+    private func setupScrollView() {
+        [
+            adImage,
+            collectionView,
+            divideLine,
+            justCollectionView
+        ].forEach {
+            scrollView.addSubview($0)
+        }
+        
+        adImage.snp.makeConstraints {
+            $0.top.equalTo(scrollView.snp.top)
             $0.left.right.equalToSuperview()
         }
         
@@ -130,5 +166,14 @@ class HomeView: UIView {
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(1)
         }
+        
+        justCollectionView.snp.makeConstraints {
+            $0.top.equalTo(divideLine.snp.bottom).offset(14)
+            $0.left.equalToSuperview().offset(16)
+            $0.right.equalToSuperview()
+            $0.height.equalTo(237)
+            $0.bottom.equalToSuperview()
+        }
     }
+
 }
