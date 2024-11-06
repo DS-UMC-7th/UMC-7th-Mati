@@ -90,6 +90,7 @@ extension HomeViewController: UICollectionViewDataSource {
             
             let list = JustDroppedModel.dummy()
             cell.imageView.image = list[indexPath.row].image
+            cell.imageView.backgroundColor = list[indexPath.row].imageColor
             cell.tradeLabel.text = list[indexPath.row].trade
             cell.savedIcon.image = list[indexPath.row].saved
             cell.brandLabel.text = list[indexPath.row].brand
