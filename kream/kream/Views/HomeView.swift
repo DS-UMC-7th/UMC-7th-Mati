@@ -113,6 +113,15 @@ class HomeView: UIView {
     }
     
     // 컬렉션뷰3
+    let challengeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
+        $0.scrollDirection = .horizontal
+        $0.estimatedItemSize = .init(width: 124, height: 165)
+        $0.minimumInteritemSpacing = 8
+    }).then {
+        $0.backgroundColor = .clear
+        $0.isScrollEnabled = true
+        $0.register(ChallengeCollectionViewCell.self, forCellWithReuseIdentifier: ChallengeCollectionViewCell.identifier)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -181,7 +190,8 @@ class HomeView: UIView {
             justCollectionView,
             divideLine2,
             challengeTitleLabel,
-            challengeSubLabel
+            challengeSubLabel,
+            challengeCollectionView
         ].forEach {
             scrollView.addSubview($0)
         }
@@ -218,7 +228,6 @@ class HomeView: UIView {
             $0.left.equalToSuperview().offset(16)
             $0.right.equalToSuperview()
             $0.height.equalTo(237)
-            $0.bottom.equalToSuperview()
         }
         
         divideLine2.snp.makeConstraints {
@@ -235,6 +244,14 @@ class HomeView: UIView {
         challengeSubLabel.snp.makeConstraints {
             $0.top.equalTo(challengeTitleLabel.snp.bottom).offset(4)
             $0.left.equalToSuperview().offset(16)
+        }
+        
+        challengeCollectionView.snp.makeConstraints {
+            $0.top.equalTo(challengeSubLabel.snp.bottom).offset(14)
+            $0.left.equalToSuperview().offset(16)
+            $0.right.equalToSuperview()
+            $0.height.equalTo(165)
+            $0.bottom.equalToSuperview().offset(-30)
         }
     }
 

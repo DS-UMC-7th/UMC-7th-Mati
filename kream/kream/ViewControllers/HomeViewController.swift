@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
     private func setupDelegate() {
         homeView.collectionView.dataSource = self
         homeView.justCollectionView.dataSource = self
+        homeView.challengeCollectionView.dataSource = self
     }
     
     @objc
@@ -63,11 +64,11 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == homeView.collectionView {
-            print(HomeModel.dummy().count)
             return HomeModel.dummy().count
         } else if collectionView == homeView.justCollectionView {
-            print(JustDroppedModel.dummy().count)
             return JustDroppedModel.dummy().count
+        } else if collectionView == homeView.challengeCollectionView {
+            return ChallengeModel.dummy().count
         }
         return 0
     }
@@ -96,6 +97,16 @@ extension HomeViewController: UICollectionViewDataSource {
             cell.brandLabel.text = list[indexPath.row].brand
             cell.goodsLabel.text = list[indexPath.row].goods
             cell.priceLabel.text = list[indexPath.row].price
+            
+            return cell
+        } else if collectionView == homeView.challengeCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChallengeCollectionViewCell.identifier, for: indexPath) as? ChallengeCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            
+            let list = ChallengeModel.dummy()
+            cell.imageView.image = list[indexPath.row].image
+            cell.idLabel.text = list[indexPath.row].id
             
             return cell
         }
