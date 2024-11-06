@@ -40,6 +40,7 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
         $0.text = "상품"
         $0.font = .systemFont(ofSize: 12, weight: .light)
         $0.textColor = .black
+        $0.numberOfLines = 2
     }
     
     // 가격
@@ -103,6 +104,7 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
         goodsLabel.snp.makeConstraints {
             $0.top.equalTo(brandLabel.snp.bottom).offset(3)
             $0.left.equalToSuperview().offset(4)
+            $0.width.equalTo(142)
         }
         
         purchaseLabel.snp.makeConstraints {
