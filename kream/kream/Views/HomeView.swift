@@ -65,6 +65,17 @@ class HomeView: UIView {
     }
     
     // Just Dropped
+    let justTitleLabel = UILabel().then {
+        $0.text = "Just Dropped"
+        $0.font = .systemFont(ofSize: 16, weight: .semibold)
+        $0.textColor = .black
+    }
+    
+    let justSubLabel = UILabel().then {
+        $0.text = "발매 상품"
+        $0.font = .systemFont(ofSize: 13, weight: .light)
+        $0.textColor = UIColor(red: 135/255, green: 135/255, blue: 135/255, alpha: 1)
+    }
     
     // 컬렉션뷰2
     let justCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
@@ -75,6 +86,11 @@ class HomeView: UIView {
         $0.backgroundColor = .clear
         $0.isScrollEnabled = true
         $0.register(JustDroppedCollectionViewCell.self, forCellWithReuseIdentifier: JustDroppedCollectionViewCell.identifier)
+    }
+    
+    // 구분선
+    let divideLine2 = UIView().then {
+        $0.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
     }
     
     // 스크롤뷰
@@ -145,7 +161,10 @@ class HomeView: UIView {
             adImage,
             collectionView,
             divideLine,
-            justCollectionView
+            justTitleLabel,
+            justSubLabel,
+            justCollectionView,
+            divideLine2
         ].forEach {
             scrollView.addSubview($0)
         }
@@ -167,12 +186,28 @@ class HomeView: UIView {
             $0.height.equalTo(1)
         }
         
+        justTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(divideLine.snp.bottom).offset(20)
+            $0.left.equalToSuperview().offset(16)
+        }
+        
+        justSubLabel.snp.makeConstraints {
+            $0.top.equalTo(justTitleLabel.snp.bottom).offset(4)
+            $0.left.equalToSuperview().offset(16)
+        }
+        
         justCollectionView.snp.makeConstraints {
-            $0.top.equalTo(divideLine.snp.bottom).offset(14)
+            $0.top.equalTo(justSubLabel.snp.bottom).offset(14)
             $0.left.equalToSuperview().offset(16)
             $0.right.equalToSuperview()
             $0.height.equalTo(237)
             $0.bottom.equalToSuperview()
+        }
+        
+        divideLine2.snp.makeConstraints {
+            $0.top.equalTo(justCollectionView.snp.bottom).offset(30)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(1)
         }
     }
 
