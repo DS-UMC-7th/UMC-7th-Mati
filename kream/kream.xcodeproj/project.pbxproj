@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2311F7852CB4A8A700E87467 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2311F7842CB4A8A700E87467 /* SnapKit */; };
+		2320566D2CDA34A600085B87 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2320566C2CDA34A600085B87 /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2311F7852CB4A8A700E87467 /* SnapKit in Frameworks */,
+				2320566D2CDA34A600085B87 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +86,7 @@
 			name = kream;
 			packageProductDependencies = (
 				2311F7842CB4A8A700E87467 /* SnapKit */,
+				2320566C2CDA34A600085B87 /* Then */,
 			);
 			productName = kream;
 			productReference = 2311F7502CB4A7E400E87467 /* kream.app */;
@@ -115,6 +118,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				2311F7832CB4A8A700E87467 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				2320566B2CDA34A600085B87 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2311F7512CB4A7E400E87467 /* Products */;
@@ -350,6 +354,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		2320566B2CDA34A600085B87 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -357,6 +369,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2311F7832CB4A8A700E87467 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		2320566C2CDA34A600085B87 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2320566B2CDA34A600085B87 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

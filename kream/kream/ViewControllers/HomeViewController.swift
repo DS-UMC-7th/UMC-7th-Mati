@@ -8,22 +8,37 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    private let homeView = HomeView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view = homeView
+        
+        setupDelegate()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupDelegate() {
+        homeView.collectionView.dataSource = self
     }
-    */
 
+}
+
+extension HomeViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return HomeModel.dummy().count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        let list = HomeModel.dummy()
+        
+        cell.imageView.image = list[indexPath.row].image
+        cell.titleLabel.text = list[indexPath.row].title
+        
+        return cell
+    }
 }
