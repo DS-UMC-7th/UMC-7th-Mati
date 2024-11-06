@@ -14,6 +14,7 @@ class RainbowView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        setupColorViews()
     }
     
     required init?(coder: NSCoder) {
