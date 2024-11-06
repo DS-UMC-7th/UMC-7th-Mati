@@ -39,6 +39,10 @@ class HomeView: UIView {
         ], for: .selected)
     }
     
+    let underLine = UIView().then {
+        $0.backgroundColor = .black
+    }
+    
     // 광고 이미지
     let adImage = UIImageView().then {
         $0.image = UIImage(named: "image_ad")
@@ -75,6 +79,7 @@ class HomeView: UIView {
             searchBar,
             alertImgae,
             menuBar,
+            underLine,
             adImage,
             collectionView,
             divideLine
@@ -102,8 +107,15 @@ class HomeView: UIView {
             $0.left.right.equalToSuperview()
         }
         
-        adImage.snp.makeConstraints {
+        underLine.snp.makeConstraints {
             $0.top.equalTo(menuBar.snp.bottom)
+            $0.left.equalTo(menuBar.snp.left)
+            $0.width.equalTo(menuBar.snp.width).dividedBy(6)
+            $0.height.equalTo(2)
+        }
+        
+        adImage.snp.makeConstraints {
+            $0.top.equalTo(underLine.snp.bottom)
             $0.left.right.equalToSuperview()
         }
         

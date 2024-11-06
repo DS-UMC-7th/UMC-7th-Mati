@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
     private func setupAction() {
         homeView.searchBar.addTarget(self, action: #selector(searchBarTapped), for: .editingDidBegin)
         homeView.menuBar.addTarget(self, action: #selector(segmentedControlValueChanged(segment:)), for: .valueChanged)
+        homeView.menuBar.addTarget(self, action: #selector(changeUnderLinePosition), for: .valueChanged)
     }
     
     private func setupDelegate() {
@@ -47,6 +48,16 @@ class HomeViewController: UIViewController {
             homeView.adImage.isHidden = true
             homeView.collectionView.isHidden = true
             homeView.divideLine.isHidden = true
+        }
+    }
+    
+    @objc
+    private func changeUnderLinePosition(_ segment: UISegmentedControl) {
+        let width = homeView.menuBar.frame.width / CGFloat(homeView.menuBar.numberOfSegments)
+        let xPosition = homeView.menuBar.frame.origin.x + (width * CGFloat(homeView.menuBar.selectedSegmentIndex))
+        
+        UIView.animate(withDuration: 0.15) {
+            self.homeView.underLine.frame.origin.x = xPosition
         }
     }
 
