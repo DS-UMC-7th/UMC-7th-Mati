@@ -14,7 +14,12 @@ class MatinKimViewController: UIViewController {
         super.viewDidLoad()
         view = matinView
 
+        setupDataSource()
         setupAction()
+    }
+    
+    private func setupDataSource() {
+        matinView.optionCollectionView.dataSource = self
     }
     
     // MARK: - action
@@ -27,4 +32,22 @@ class MatinKimViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
+}
+
+extension MatinKimViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return MatinKimModel.dummy().count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MatinKimCollectionViewCell.identifier, for: indexPath) as? MatinKimCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        let list = MatinKimModel.dummy()
+        cell.imageView.image = list[indexPath.row].image
+        return cell
+    }
+    
+    
 }

@@ -20,6 +20,15 @@ class MatinKimView: UIView {
     }
     
     // 옵션
+    let optionCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
+        $0.scrollDirection = .horizontal
+        $0.estimatedItemSize = .init(width: 53, height: 53)
+        $0.minimumInteritemSpacing = 8
+    }).then {
+        $0.backgroundColor = .clear
+        $0.isScrollEnabled = true
+        $0.register(MatinKimCollectionViewCell.self, forCellWithReuseIdentifier: MatinKimCollectionViewCell.identifier)
+    }
     
     // 가격
     let priceTitle = UILabel().then {
@@ -72,6 +81,7 @@ class MatinKimView: UIView {
         [
             backButton,
             imageView,
+            optionCollectionView,
             priceTitle,
             priceLabel,
             nameEng,
@@ -91,8 +101,14 @@ class MatinKimView: UIView {
             $0.horizontalEdges.equalToSuperview()
         }
         
+        optionCollectionView.snp.makeConstraints {
+            $0.top.equalTo(imageView.snp.bottom).offset(20)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(53)
+        }
+        
         priceTitle.snp.makeConstraints {
-            $0.top.equalTo(imageView.snp.bottom).offset(23)
+            $0.top.equalTo(optionCollectionView.snp.bottom).offset(23)
             $0.left.equalToSuperview().offset(16)
         }
         
