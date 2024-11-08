@@ -25,11 +25,18 @@ class MatinKimViewController: UIViewController {
     // MARK: - action
     private func setupAction() {
         matinView.backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        matinView.purchaseButton.addTarget(self, action: #selector(purchaseButtonTapped), for: .touchUpInside)
     }
     
     @objc
     private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    private func purchaseButtonTapped() {
+        let purchaseVC = PurchaseViewController()
+        present(purchaseVC, animated: true)
     }
 
 }
