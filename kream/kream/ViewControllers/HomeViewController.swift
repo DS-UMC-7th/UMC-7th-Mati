@@ -121,8 +121,8 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == homeView.justCollectionView && indexPath.row == 0 {
-            print("click")
             let matinVC = MatinKimViewController()
+            matinVC.hidesBottomBarWhenPushed = true 
             navigationController?.pushViewController(matinVC, animated: true)
         }
     }

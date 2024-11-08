@@ -57,12 +57,68 @@ class MatinKimView: UIView {
     }
     
     // 구분선
+    let topLine = UIView().then {
+        $0.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
+    }
     
     // 저장
+    let saveButton = UIButton().then {
+        $0.setImage(.savedIcon, for: .normal)
+    }
+    
+    let saveLabel = UILabel().then {
+        $0.text = "2,122"
+        $0.font = .systemFont(ofSize: 12, weight: .regular)
+        $0.textColor = .black
+    }
     
     // 구매 버튼
+    let purchaseButton = UIButton().then {
+        $0.backgroundColor = UIColor(red: 239/255, green: 98/255, blue: 84/255, alpha: 1)
+        $0.layer.cornerRadius = 10
+    }
+    
+    let purchaseTitle = UILabel().then {
+        $0.text = "구매"
+        $0.font = .systemFont(ofSize: 16, weight: .semibold)
+        $0.textColor = .white
+    }
+    
+    let purchasePrice = UILabel().then {
+        $0.text = "345,000"
+        $0.font = .systemFont(ofSize: 13, weight: .semibold)
+        $0.textColor = .white
+    }
+    
+    let purchaseLabel = UILabel().then {
+        $0.text = "즉시 구매가"
+        $0.font = .systemFont(ofSize: 10, weight: .regular)
+        $0.textColor = UIColor(red: 163/255, green: 55/255, blue: 35/255, alpha: 1)
+    }
     
     // 판매 버튼
+    let saleButton = UIButton().then {
+        $0.backgroundColor = UIColor(red: 65/255, green: 185/255, blue: 122/255, alpha: 1)
+        $0.layer.cornerRadius = 10
+    }
+    
+    let saleTitle = UILabel().then {
+        $0.text = "판매"
+        $0.font = .systemFont(ofSize: 16, weight: .semibold)
+        $0.textColor = .white
+    }
+    
+    let salePrice = UILabel().then {
+        $0.text = "396,000"
+        $0.font = .systemFont(ofSize: 13, weight: .semibold)
+        $0.textColor = .white
+    }
+    
+    let saleLabel = UILabel().then {
+        $0.text = "즉시 판매가"
+        $0.font = .systemFont(ofSize: 10, weight: .regular)
+        $0.textColor = UIColor(red: 31/255, green: 119/255, blue: 69/255, alpha: 1)
+    }
 
     // MARK: - init
     override init(frame: CGRect) {
@@ -86,6 +142,17 @@ class MatinKimView: UIView {
             priceLabel,
             nameEng,
             nameKor,
+            topLine,
+            saveButton,
+            saveLabel,
+            purchaseButton,
+            purchaseTitle,
+            purchasePrice,
+            purchaseLabel,
+            saleButton,
+            saleTitle,
+            salePrice,
+            saleLabel
         ].forEach {
             addSubview($0)
         }
@@ -125,6 +192,66 @@ class MatinKimView: UIView {
         nameKor.snp.makeConstraints {
             $0.top.equalTo(nameEng.snp.bottom).offset(6)
             $0.left.equalToSuperview().offset(16)
+        }
+        
+        topLine.snp.makeConstraints {
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-95)
+            $0.height.equalTo(2)
+        }
+        
+        saveButton.snp.makeConstraints {
+            $0.top.equalTo(topLine.snp.bottom).offset(15)
+            $0.left.equalToSuperview().offset(17)
+        }
+        
+        saveLabel.snp.makeConstraints {
+            $0.top.equalTo(topLine.snp.bottom).offset(36)
+            $0.left.equalToSuperview().offset(16)
+        }
+        
+        saleButton.snp.makeConstraints {
+            $0.top.equalTo(topLine.snp.bottom).offset(8)
+            $0.right.equalToSuperview().offset(-15)
+            $0.width.equalTo(147)
+            $0.height.equalTo(49)
+        }
+        
+        saleTitle.snp.makeConstraints {
+            $0.top.equalTo(saleButton.snp.top).offset(15)
+            $0.left.equalTo(saleButton.snp.left).offset(10)
+        }
+        
+        salePrice.snp.makeConstraints {
+            $0.top.equalTo(saleButton.snp.top).offset(8)
+            $0.right.equalTo(saleButton.snp.right).offset(-35)
+        }
+        
+        saleLabel.snp.makeConstraints {
+            $0.top.equalTo(salePrice.snp.bottom).offset(2)
+            $0.left.equalTo(salePrice.snp.left)
+        }
+        
+        purchaseButton.snp.makeConstraints {
+            $0.top.equalTo(topLine.snp.bottom).offset(8)
+            $0.right.equalTo(saleButton.snp.left).offset(-6)
+            $0.width.equalTo(147)
+            $0.height.equalTo(49)
+        }
+        
+        purchaseTitle.snp.makeConstraints {
+            $0.top.equalTo(purchaseButton.snp.top).offset(15)
+            $0.left.equalTo(purchaseButton.snp.left).offset(10)
+        }
+        
+        purchasePrice.snp.makeConstraints {
+            $0.top.equalTo(purchaseButton.snp.top).offset(8)
+            $0.right.equalTo(purchaseButton.snp.right).offset(-35)
+        }
+        
+        purchaseLabel.snp.makeConstraints {
+            $0.top.equalTo(purchasePrice.snp.bottom).offset(2)
+            $0.left.equalTo(purchasePrice.snp.left)
         }
     }
 }
