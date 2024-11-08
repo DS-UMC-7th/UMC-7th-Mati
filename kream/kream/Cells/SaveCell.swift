@@ -130,7 +130,7 @@ class SaveCell: UITableViewCell {
         
         saveButton.snp.makeConstraints {
             $0.top.equalToSuperview().offset(18)
-            $0.right.equalToSuperview().offset(17)
+            $0.right.equalToSuperview().offset(-17)
             $0.width.equalTo(14)
             $0.height.equalTo(18)
         }
