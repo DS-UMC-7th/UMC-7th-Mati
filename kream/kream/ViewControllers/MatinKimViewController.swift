@@ -14,6 +14,17 @@ class MatinKimViewController: UIViewController {
         super.viewDidLoad()
         view = matinView
 
+        setupAction()
+    }
+    
+    // MARK: - action
+    private func setupAction() {
+        matinView.backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    private func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
 
 }
