@@ -13,6 +13,18 @@ class PurchaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = purchaseView
+        
+        setupAction()
+    }
+    
+    // MARK: - action
+    private func setupAction() {
+        purchaseView.cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    private func cancelButtonTapped() {
+        self.dismiss(animated: true)
     }
 
 }
