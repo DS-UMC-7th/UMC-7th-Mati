@@ -1,7 +1,6 @@
 {
-  "images" : [
+  "colors" : [
     {
-      "filename" : "프로필 Image.svg",
       "idiom" : "universal"
     }
   ],

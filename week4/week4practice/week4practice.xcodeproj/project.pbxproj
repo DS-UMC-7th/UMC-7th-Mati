@@ -7,60 +7,60 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2311F7852CB4A8A700E87467 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2311F7842CB4A8A700E87467 /* SnapKit */; };
-		2320566D2CDA34A600085B87 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2320566C2CDA34A600085B87 /* Then */; };
+		23CD837C2CD7EC0D00CA9C5D /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 23CD837B2CD7EC0D00CA9C5D /* Then */; };
+		23CD837F2CD7EC1500CA9C5D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 23CD837E2CD7EC1500CA9C5D /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2311F7502CB4A7E400E87467 /* kream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kream.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		233D1AB52CBEA54B00B8B5C3 /* week4practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = week4practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		2311F7622CB4A7E600E87467 /* Exceptions for "kream" folder in "kream" target */ = {
+		233D1AC72CBEA54C00B8B5C3 /* Exceptions for "week4practice" folder in "week4practice" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 2311F74F2CB4A7E400E87467 /* kream */;
+			target = 233D1AB42CBEA54B00B8B5C3 /* week4practice */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		2311F7522CB4A7E400E87467 /* kream */ = {
+		233D1AB72CBEA54B00B8B5C3 /* week4practice */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				2311F7622CB4A7E600E87467 /* Exceptions for "kream" folder in "kream" target */,
+				233D1AC72CBEA54C00B8B5C3 /* Exceptions for "week4practice" folder in "week4practice" target */,
 			);
-			path = kream;
+			path = week4practice;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2311F74D2CB4A7E400E87467 /* Frameworks */ = {
+		233D1AB22CBEA54B00B8B5C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2311F7852CB4A8A700E87467 /* SnapKit in Frameworks */,
-				2320566D2CDA34A600085B87 /* Then in Frameworks */,
+				23CD837C2CD7EC0D00CA9C5D /* Then in Frameworks */,
+				23CD837F2CD7EC1500CA9C5D /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2311F7472CB4A7E400E87467 = {
+		233D1AAC2CBEA54B00B8B5C3 = {
 			isa = PBXGroup;
 			children = (
-				2311F7522CB4A7E400E87467 /* kream */,
-				2311F7512CB4A7E400E87467 /* Products */,
+				233D1AB72CBEA54B00B8B5C3 /* week4practice */,
+				233D1AB62CBEA54B00B8B5C3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2311F7512CB4A7E400E87467 /* Products */ = {
+		233D1AB62CBEA54B00B8B5C3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2311F7502CB4A7E400E87467 /* kream.app */,
+				233D1AB52CBEA54B00B8B5C3 /* week4practice.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,70 +68,70 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2311F74F2CB4A7E400E87467 /* kream */ = {
+		233D1AB42CBEA54B00B8B5C3 /* week4practice */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2311F7632CB4A7E600E87467 /* Build configuration list for PBXNativeTarget "kream" */;
+			buildConfigurationList = 233D1AC82CBEA54C00B8B5C3 /* Build configuration list for PBXNativeTarget "week4practice" */;
 			buildPhases = (
-				2311F74C2CB4A7E400E87467 /* Sources */,
-				2311F74D2CB4A7E400E87467 /* Frameworks */,
-				2311F74E2CB4A7E400E87467 /* Resources */,
+				233D1AB12CBEA54B00B8B5C3 /* Sources */,
+				233D1AB22CBEA54B00B8B5C3 /* Frameworks */,
+				233D1AB32CBEA54B00B8B5C3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				2311F7522CB4A7E400E87467 /* kream */,
+				233D1AB72CBEA54B00B8B5C3 /* week4practice */,
 			);
-			name = kream;
+			name = week4practice;
 			packageProductDependencies = (
-				2311F7842CB4A8A700E87467 /* SnapKit */,
-				2320566C2CDA34A600085B87 /* Then */,
+				23CD837B2CD7EC0D00CA9C5D /* Then */,
+				23CD837E2CD7EC1500CA9C5D /* SnapKit */,
 			);
-			productName = kream;
-			productReference = 2311F7502CB4A7E400E87467 /* kream.app */;
+			productName = week4practice;
+			productReference = 233D1AB52CBEA54B00B8B5C3 /* week4practice.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2311F7482CB4A7E400E87467 /* Project object */ = {
+		233D1AAD2CBEA54B00B8B5C3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
-					2311F74F2CB4A7E400E87467 = {
+					233D1AB42CBEA54B00B8B5C3 = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
-			buildConfigurationList = 2311F74B2CB4A7E400E87467 /* Build configuration list for PBXProject "kream" */;
+			buildConfigurationList = 233D1AB02CBEA54B00B8B5C3 /* Build configuration list for PBXProject "week4practice" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 2311F7472CB4A7E400E87467;
+			mainGroup = 233D1AAC2CBEA54B00B8B5C3;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				2311F7832CB4A8A700E87467 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				2320566B2CDA34A600085B87 /* XCRemoteSwiftPackageReference "Then" */,
+				23CD837A2CD7EC0D00CA9C5D /* XCRemoteSwiftPackageReference "Then" */,
+				23CD837D2CD7EC1500CA9C5D /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 2311F7512CB4A7E400E87467 /* Products */;
+			productRefGroup = 233D1AB62CBEA54B00B8B5C3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2311F74F2CB4A7E400E87467 /* kream */,
+				233D1AB42CBEA54B00B8B5C3 /* week4practice */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2311F74E2CB4A7E400E87467 /* Resources */ = {
+		233D1AB32CBEA54B00B8B5C3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -141,7 +141,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2311F74C2CB4A7E400E87467 /* Sources */ = {
+		233D1AB12CBEA54B00B8B5C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -151,7 +151,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		2311F7642CB4A7E600E87467 /* Debug */ = {
+		233D1AC92CBEA54C00B8B5C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -159,7 +159,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = kream/Info.plist;
+				INFOPLIST_FILE = week4practice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -169,7 +169,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.umc.kream;
+				PRODUCT_BUNDLE_IDENTIFIER = com.umc.week4practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -177,7 +177,7 @@
 			};
 			name = Debug;
 		};
-		2311F7652CB4A7E600E87467 /* Release */ = {
+		233D1ACA2CBEA54C00B8B5C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -185,7 +185,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = kream/Info.plist;
+				INFOPLIST_FILE = week4practice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -195,7 +195,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.umc.kream;
+				PRODUCT_BUNDLE_IDENTIFIER = com.umc.week4practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -203,7 +203,7 @@
 			};
 			name = Release;
 		};
-		2311F7662CB4A7E600E87467 /* Debug */ = {
+		233D1ACB2CBEA54C00B8B5C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -266,7 +266,7 @@
 			};
 			name = Debug;
 		};
-		2311F7672CB4A7E600E87467 /* Release */ = {
+		233D1ACC2CBEA54C00B8B5C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -325,20 +325,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2311F74B2CB4A7E400E87467 /* Build configuration list for PBXProject "kream" */ = {
+		233D1AB02CBEA54B00B8B5C3 /* Build configuration list for PBXProject "week4practice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2311F7662CB4A7E600E87467 /* Debug */,
-				2311F7672CB4A7E600E87467 /* Release */,
+				233D1ACB2CBEA54C00B8B5C3 /* Debug */,
+				233D1ACC2CBEA54C00B8B5C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2311F7632CB4A7E600E87467 /* Build configuration list for PBXNativeTarget "kream" */ = {
+		233D1AC82CBEA54C00B8B5C3 /* Build configuration list for PBXNativeTarget "week4practice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2311F7642CB4A7E600E87467 /* Debug */,
-				2311F7652CB4A7E600E87467 /* Release */,
+				233D1AC92CBEA54C00B8B5C3 /* Debug */,
+				233D1ACA2CBEA54C00B8B5C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -346,15 +346,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2311F7832CB4A8A700E87467 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.1;
-			};
-		};
-		2320566B2CDA34A600085B87 /* XCRemoteSwiftPackageReference "Then" */ = {
+		23CD837A2CD7EC0D00CA9C5D /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
 			requirement = {
@@ -362,20 +354,28 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		23CD837D2CD7EC1500CA9C5D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2311F7842CB4A8A700E87467 /* SnapKit */ = {
+		23CD837B2CD7EC0D00CA9C5D /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2311F7832CB4A8A700E87467 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		2320566C2CDA34A600085B87 /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2320566B2CDA34A600085B87 /* XCRemoteSwiftPackageReference "Then" */;
+			package = 23CD837A2CD7EC0D00CA9C5D /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		23CD837E2CD7EC1500CA9C5D /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23CD837D2CD7EC1500CA9C5D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 2311F7482CB4A7E400E87467 /* Project object */;
+	rootObject = 233D1AAD2CBEA54B00B8B5C3 /* Project object */;
 }
