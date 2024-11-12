@@ -15,6 +15,7 @@ class PurchaseViewController: UIViewController {
         view = purchaseView
         
         setupAction()
+        setDataSource()
     }
     
     // MARK: - action
@@ -26,5 +27,30 @@ class PurchaseViewController: UIViewController {
     private func cancelButtonTapped() {
         self.dismiss(animated: true)
     }
+    
+    // MARK: - dataSource
+    private func setDataSource() {
+        purchaseView.sizeCollectionView.dataSource = self
+    }
 
+}
+
+extension PurchaseViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return SizeModel.dummy().count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SizeCollectionViewCell.identifier, for: indexPath) as? SizeCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        let list = SizeModel.dummy()
+        cell.sizeLabel.text = list[indexPath.row].size
+        cell.priceLabel.text = list[indexPath.row].price
+        
+        return cell
+    } 
+    
+    
 }

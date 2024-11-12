@@ -50,6 +50,14 @@ class PurchaseView: UIView {
     }
     
     // 사이즈 - 컬렉션 뷰
+    let sizeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
+        $0.estimatedItemSize = .init(width: 110, height: 47)
+        $0.minimumInteritemSpacing = 7
+    }).then {
+        $0.backgroundColor = .clear
+        $0.isScrollEnabled = false
+        $0.register(SizeCollectionViewCell.self, forCellWithReuseIdentifier: SizeCollectionViewCell.identifier)
+    }
     
     // MARK: - init
     override init(frame: CGRect) {
@@ -71,7 +79,8 @@ class PurchaseView: UIView {
             cancelButton,
             imageView,
             nameEng,
-            nameKor
+            nameKor,
+            sizeCollectionView
         ].forEach {
             addSubview($0)
         }
@@ -106,6 +115,12 @@ class PurchaseView: UIView {
         nameKor.snp.makeConstraints {
             $0.top.equalTo(nameEng.snp.bottom).offset(4)
             $0.left.equalTo(nameEng.snp.left)
+        }
+        
+        sizeCollectionView.snp.makeConstraints {
+            $0.top.equalTo(imageView.snp.bottom).offset(35)
+            $0.horizontalEdges.equalToSuperview().inset(15)
+            $0.height.equalTo(102)
         }
     }
 
