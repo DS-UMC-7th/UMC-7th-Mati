@@ -27,6 +27,8 @@ class HomeViewController: UIViewController {
     
     private func setupDelegate() {
         homeView.collectionView.dataSource = self
+        homeView.justCollectionView.dataSource = self
+        homeView.challengeCollectionView.dataSource = self
     }
     
     @objc
@@ -40,14 +42,10 @@ class HomeViewController: UIViewController {
     @objc
     private func segmentedControlValueChanged(segment: UISegmentedControl) {
         if segment.selectedSegmentIndex == 0 {
-            homeView.adImage.isHidden = false
-            homeView.collectionView.isHidden = false
-            homeView.divideLine.isHidden = false
+            homeView.scrollView.isHidden = false
         }
         else {
-            homeView.adImage.isHidden = true
-            homeView.collectionView.isHidden = true
-            homeView.divideLine.isHidden = true
+            homeView.scrollView.isHidden = true
         }
     }
     
@@ -65,19 +63,54 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return HomeModel.dummy().count
+        if collectionView == homeView.collectionView {
+            return HomeModel.dummy().count
+        } else if collectionView == homeView.justCollectionView {
+            return JustDroppedModel.dummy().count
+        } else if collectionView == homeView.challengeCollectionView {
+            return ChallengeModel.dummy().count
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell else {
-            return UICollectionViewCell()
+        if collectionView == homeView.collectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            
+            let list = HomeModel.dummy()
+            cell.imageView.image = list[indexPath.row].image
+            cell.titleLabel.text = list[indexPath.row].title
+            return cell
+            
+        } else if collectionView == homeView.justCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: JustDroppedCollectionViewCell.identifier, for: indexPath) as? JustDroppedCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            
+            let list = JustDroppedModel.dummy()
+            cell.imageView.image = list[indexPath.row].image
+            cell.imageView.backgroundColor = list[indexPath.row].imageColor
+            cell.tradeLabel.text = list[indexPath.row].trade
+            cell.savedIcon.image = list[indexPath.row].saved
+            cell.brandLabel.text = list[indexPath.row].brand
+            cell.goodsLabel.text = list[indexPath.row].goods
+            cell.priceLabel.text = list[indexPath.row].price
+            
+            return cell
+        } else if collectionView == homeView.challengeCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChallengeCollectionViewCell.identifier, for: indexPath) as? ChallengeCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            
+            let list = ChallengeModel.dummy()
+            cell.imageView.image = list[indexPath.row].image
+            cell.idLabel.text = list[indexPath.row].id
+            
+            return cell
         }
         
-        let list = HomeModel.dummy()
-        
-        cell.imageView.image = list[indexPath.row].image
-        cell.titleLabel.text = list[indexPath.row].title
-        
-        return cell
+        return UICollectionViewCell()
     }
 }

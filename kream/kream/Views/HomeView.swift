@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 import Then
 
 class HomeView: UIView {
@@ -43,6 +44,12 @@ class HomeView: UIView {
         $0.backgroundColor = .black
     }
     
+    // 스크롤뷰
+    let scrollView = UIScrollView().then {
+        $0.showsVerticalScrollIndicator = false
+        $0.showsHorizontalScrollIndicator = true
+    }
+    
     // 광고 이미지
     let adImage = UIImageView().then {
         $0.image = UIImage(named: "image_ad")
@@ -51,7 +58,7 @@ class HomeView: UIView {
     // 컬렉션뷰
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
         $0.estimatedItemSize = .init(width: 61, height: 81)
-        $0.minimumLineSpacing = 9
+        $0.minimumInteritemSpacing = 9
     }).then {
         $0.backgroundColor = .clear
         $0.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
@@ -62,10 +69,64 @@ class HomeView: UIView {
         $0.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
     }
     
+    // Just Dropped
+    let justTitleLabel = UILabel().then {
+        $0.text = "Just Dropped"
+        $0.font = .systemFont(ofSize: 16, weight: .semibold)
+        $0.textColor = .black
+    }
+    
+    let justSubLabel = UILabel().then {
+        $0.text = "발매 상품"
+        $0.font = .systemFont(ofSize: 13, weight: .light)
+        $0.textColor = UIColor(red: 135/255, green: 135/255, blue: 135/255, alpha: 1)
+    }
+    
+    // 컬렉션뷰2
+    let justCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
+        $0.scrollDirection = .horizontal // 셀 가로로 배치
+        $0.estimatedItemSize = .init(width: 142, height: 237)
+        $0.minimumInteritemSpacing = 8
+    }).then {
+        $0.backgroundColor = .clear
+        $0.isScrollEnabled = true
+        $0.register(JustDroppedCollectionViewCell.self, forCellWithReuseIdentifier: JustDroppedCollectionViewCell.identifier)
+    }
+    
+    // 구분선
+    let divideLine2 = UIView().then {
+        $0.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
+    }
+    
+    // 한파대비
+    let challengeTitleLabel = UILabel().then {
+        $0.text = "본격 한파대비! 연말 필수템 모음"
+        $0.font = .systemFont(ofSize: 16, weight: .semibold)
+        $0.textColor = .black
+    }
+    
+    let challengeSubLabel = UILabel().then {
+        $0.text = "#해피홀리룩챌린지"
+        $0.font = .systemFont(ofSize: 13, weight: .light)
+        $0.textColor = UIColor(red: 135/255, green: 135/255, blue: 135/255, alpha: 1)
+    }
+    
+    // 컬렉션뷰3
+    let challengeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
+        $0.scrollDirection = .horizontal
+        $0.estimatedItemSize = .init(width: 124, height: 165)
+        $0.minimumInteritemSpacing = 8
+    }).then {
+        $0.backgroundColor = .clear
+        $0.isScrollEnabled = true
+        $0.register(ChallengeCollectionViewCell.self, forCellWithReuseIdentifier: ChallengeCollectionViewCell.identifier)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
         
+        setupScrollView()
         setupView()
     }
     
@@ -79,9 +140,7 @@ class HomeView: UIView {
             alertImgae,
             menuBar,
             underLine,
-            adImage,
-            collectionView,
-            divideLine
+            scrollView
         ].forEach {
             addSubview($0)
         }
@@ -113,8 +172,31 @@ class HomeView: UIView {
             $0.height.equalTo(2)
         }
         
-        adImage.snp.makeConstraints {
+        scrollView.snp.makeConstraints {
             $0.top.equalTo(underLine.snp.bottom)
+            $0.left.right.equalToSuperview()
+            $0.bottom.equalTo(safeAreaLayoutGuide)
+        }
+    }
+    
+    private func setupScrollView() {
+        [
+            adImage,
+            collectionView,
+            divideLine,
+            justTitleLabel,
+            justSubLabel,
+            justCollectionView,
+            divideLine2,
+            challengeTitleLabel,
+            challengeSubLabel,
+            challengeCollectionView
+        ].forEach {
+            scrollView.addSubview($0)
+        }
+        
+        adImage.snp.makeConstraints {
+            $0.top.equalTo(scrollView.snp.top)
             $0.left.right.equalToSuperview()
         }
         
@@ -129,5 +211,47 @@ class HomeView: UIView {
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(1)
         }
+        
+        justTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(divideLine.snp.bottom).offset(20)
+            $0.left.equalToSuperview().offset(16)
+        }
+        
+        justSubLabel.snp.makeConstraints {
+            $0.top.equalTo(justTitleLabel.snp.bottom).offset(4)
+            $0.left.equalToSuperview().offset(16)
+        }
+        
+        justCollectionView.snp.makeConstraints {
+            $0.top.equalTo(justSubLabel.snp.bottom).offset(14)
+            $0.left.equalToSuperview().offset(16)
+            $0.right.equalToSuperview()
+            $0.height.equalTo(237)
+        }
+        
+        divideLine2.snp.makeConstraints {
+            $0.top.equalTo(justCollectionView.snp.bottom).offset(30)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(1)
+        }
+        
+        challengeTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(divideLine2.snp.bottom).offset(20)
+            $0.left.equalToSuperview().offset(16)
+        }
+        
+        challengeSubLabel.snp.makeConstraints {
+            $0.top.equalTo(challengeTitleLabel.snp.bottom).offset(4)
+            $0.left.equalToSuperview().offset(16)
+        }
+        
+        challengeCollectionView.snp.makeConstraints {
+            $0.top.equalTo(challengeSubLabel.snp.bottom).offset(14)
+            $0.left.equalToSuperview().offset(16)
+            $0.right.equalToSuperview()
+            $0.height.equalTo(165)
+            $0.bottom.equalToSuperview().offset(-30)
+        }
     }
+
 }
