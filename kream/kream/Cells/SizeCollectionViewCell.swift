@@ -15,6 +15,8 @@ class SizeCollectionViewCell: UICollectionViewCell {
         $0.layer.borderColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1).cgColor
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 10
+        $0.isUserInteractionEnabled = false // 셀 이벤트 가로채는 경우 해결
+
     }
     
     // 사이즈
@@ -67,5 +69,12 @@ class SizeCollectionViewCell: UICollectionViewCell {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(sizeLabel.snp.bottom)
         }
+    }
+    
+    // select 상태일 때
+    func updateSelectionState(_ isSelected: Bool) {
+        sizeButton.layer.borderColor = isSelected ? UIColor.black.cgColor : UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1).cgColor
+        sizeLabel.font = isSelected ? .systemFont(ofSize: 14, weight: .semibold) : .systemFont(ofSize: 14, weight: .regular)
+        priceLabel.font = isSelected ? .systemFont(ofSize: 14, weight: .semibold) : .systemFont(ofSize: 14, weight: .regular)
     }
 }

@@ -120,7 +120,7 @@ class PurchaseView: UIView {
         sizeCollectionView.snp.makeConstraints {
             $0.top.equalTo(imageView.snp.bottom).offset(35)
             $0.horizontalEdges.equalToSuperview().inset(15)
-            $0.height.equalTo(102)
+            $0.height.equalTo(104)
         }
     }
 

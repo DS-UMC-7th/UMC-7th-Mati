@@ -9,6 +9,7 @@ import UIKit
 
 class PurchaseViewController: UIViewController {
     private let purchaseView = PurchaseView()
+    private var selectedIndex: IndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +32,13 @@ class PurchaseViewController: UIViewController {
     // MARK: - dataSource
     private func setDataSource() {
         purchaseView.sizeCollectionView.dataSource = self
+        purchaseView.sizeCollectionView.delegate = self
+
     }
 
 }
 
-extension PurchaseViewController: UICollectionViewDataSource {
+extension PurchaseViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return SizeModel.dummy().count
     }
@@ -49,8 +52,23 @@ extension PurchaseViewController: UICollectionViewDataSource {
         cell.sizeLabel.text = list[indexPath.row].size
         cell.priceLabel.text = list[indexPath.row].price
         
+        let isSelected = indexPath == selectedIndex
+        cell.updateSelectionState(isSelected)
+        
         return cell
     } 
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 기존 선택 해제
+        if let previousIndex = selectedIndex {
+            let previousCell = collectionView.cellForItem(at: previousIndex) as? SizeCollectionViewCell
+            previousCell?.updateSelectionState(false)
+        }
+        
+        // 새로운 선택 적용
+        selectedIndex = indexPath
+        let currentCell = collectionView.cellForItem(at: indexPath) as? SizeCollectionViewCell
+        currentCell?.updateSelectionState(true)
+    }
     
 }
