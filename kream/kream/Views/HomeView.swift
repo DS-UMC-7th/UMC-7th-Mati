@@ -64,7 +64,6 @@ class HomeView: UIView {
         $0.minimumInteritemSpacing = 9
     }).then {
         $0.backgroundColor = .clear
-        $0.isScrollEnabled = false
         $0.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
     }
     
