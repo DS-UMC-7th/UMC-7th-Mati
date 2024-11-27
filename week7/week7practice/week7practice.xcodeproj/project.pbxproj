@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23E857FD2CF6961000A9549B /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 23E857FC2CF6961000A9549B /* Secrets.xcconfig */; };
+		23E858002CF69C6800A9549B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 23E857FF2CF69C6800A9549B /* Alamofire */; };
 		23F7FF532CECB2F800B17917 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 23F7FF522CECB2F800B17917 /* SnapKit */; };
 		23F7FF562CECB2FF00B17917 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 23F7FF552CECB2FF00B17917 /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23E857FC2CF6961000A9549B /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		23F7FF2C2CECB09400B17917 /* week7practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = week7practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -41,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23E858002CF69C6800A9549B /* Alamofire in Frameworks */,
 				23F7FF532CECB2F800B17917 /* SnapKit in Frameworks */,
 				23F7FF562CECB2FF00B17917 /* Then in Frameworks */,
 			);
@@ -52,6 +56,7 @@
 		23F7FF232CECB09400B17917 = {
 			isa = PBXGroup;
 			children = (
+				23E857FC2CF6961000A9549B /* Secrets.xcconfig */,
 				23F7FF2E2CECB09400B17917 /* week7practice */,
 				23F7FF2D2CECB09400B17917 /* Products */,
 			);
@@ -87,6 +92,7 @@
 			packageProductDependencies = (
 				23F7FF522CECB2F800B17917 /* SnapKit */,
 				23F7FF552CECB2FF00B17917 /* Then */,
+				23E857FF2CF69C6800A9549B /* Alamofire */,
 			);
 			productName = week7practice;
 			productReference = 23F7FF2C2CECB09400B17917 /* week7practice.app */;
@@ -119,6 +125,7 @@
 			packageReferences = (
 				23F7FF512CECB2F800B17917 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				23F7FF542CECB2FF00B17917 /* XCRemoteSwiftPackageReference "Then" */,
+				23E857FE2CF69C6800A9549B /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 23F7FF2D2CECB09400B17917 /* Products */;
@@ -135,6 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23E857FD2CF6961000A9549B /* Secrets.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +161,7 @@
 /* Begin XCBuildConfiguration section */
 		23F7FF402CECB09600B17917 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23E857FC2CF6961000A9549B /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -346,6 +355,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		23E857FE2CF69C6800A9549B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
 		23F7FF512CECB2F800B17917 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -365,6 +382,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		23E857FF2CF69C6800A9549B /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23E857FE2CF69C6800A9549B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		23F7FF522CECB2F800B17917 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 23F7FF512CECB2F800B17917 /* XCRemoteSwiftPackageReference "SnapKit" */;
