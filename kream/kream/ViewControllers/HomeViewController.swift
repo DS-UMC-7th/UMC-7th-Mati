@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
 
         view = homeView
         
@@ -29,6 +30,8 @@ class HomeViewController: UIViewController {
         homeView.collectionView.dataSource = self
         homeView.justCollectionView.dataSource = self
         homeView.challengeCollectionView.dataSource = self
+        
+        homeView.justCollectionView.delegate = self
     }
     
     @objc
@@ -112,5 +115,15 @@ extension HomeViewController: UICollectionViewDataSource {
         }
         
         return UICollectionViewCell()
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == homeView.justCollectionView && indexPath.row == 0 {
+            let matinVC = MatinKimViewController()
+            matinVC.hidesBottomBarWhenPushed = true 
+            navigationController?.pushViewController(matinVC, animated: true)
+        }
     }
 }

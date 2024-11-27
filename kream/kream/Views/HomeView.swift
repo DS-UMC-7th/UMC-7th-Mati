@@ -26,10 +26,13 @@ class HomeView: UIView {
     
     // 메뉴
     let menuBar = UISegmentedControl(items: ["추천", "랭킹", "발매정보", "럭셔리", "남성", "여성"]).then {
-        $0.selectedSegmentIndex = 0
-        
+        $0.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)
+        $0.setBackgroundImage(UIImage(), for: .selected, barMetrics: .default)
+        $0.setBackgroundImage(UIImage(), for: .highlighted, barMetrics: .default)
         $0.setDividerImage(UIImage(), forLeftSegmentState: .selected, rightSegmentState: .normal, barMetrics: .default)
         
+        $0.selectedSegmentIndex = 0
+
         $0.setTitleTextAttributes([
             NSAttributedString.Key.foregroundColor: UIColor.black,
             .font: UIFont.systemFont(ofSize: 16, weight: .light)
@@ -162,11 +165,12 @@ class HomeView: UIView {
         
         menuBar.snp.makeConstraints {
             $0.top.equalTo(searchBar.snp.bottom).offset(16)
-            $0.left.right.equalToSuperview()
+            $0.left.right.equalToSuperview().inset(10)
+            $0.height.equalTo(27)
         }
         
         underLine.snp.makeConstraints {
-            $0.top.equalTo(menuBar.snp.bottom)
+            $0.top.equalTo(menuBar.snp.bottom).offset(6)
             $0.left.equalTo(menuBar.snp.left)
             $0.width.equalTo(menuBar.snp.width).dividedBy(6)
             $0.height.equalTo(2)
