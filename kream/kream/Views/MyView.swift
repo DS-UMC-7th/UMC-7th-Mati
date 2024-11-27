@@ -115,7 +115,7 @@ class MyView: UIView {
     }()
     
     // 사용자 아이디
-    private lazy var idLabel: UILabel = {
+    public lazy var idLabel: UILabel = {
         let label = UILabel()
         
         label.text = "Jeong_iOS"

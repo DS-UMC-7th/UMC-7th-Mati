@@ -9,7 +9,7 @@ import UIKit
 import KakaoSDKUser
 
 class LoginViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = loginView
@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
         
         setupAction()
     }
-
+    
     private lazy var loginView: LoginView = {
         let view = LoginView()
         return view
@@ -45,11 +45,19 @@ class LoginViewController: UIViewController {
         UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in
             if let error = error {
                 print(error)
-            }
-            else {
+            } else {
                 print("loginWithKakaoTalk() success.")
                 
-                _ = oauthToken
+                if let token = oauthToken?.accessToken {
+                    KeychainService.shared.save(token.data(using: .utf8)!, for: "accessToken")
+                }
+                
+                self.getUserInfo { nickName in
+                    if let nickName = nickName {
+                        KeychainService.shared.save(nickName.data(using: .utf8)!, for: "userName")
+                    }
+                }
+                
                 let mainVC = MainViewController()
                 mainVC.modalPresentationStyle = .fullScreen
                 self.present(mainVC, animated: true)
@@ -61,11 +69,19 @@ class LoginViewController: UIViewController {
         UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in
             if let error = error {
                 print(error)
-            }
-            else {
+            } else {
                 print("loginWithKakaoAccount() success.")
                 
-                _ = oauthToken
+                if let token = oauthToken?.accessToken {
+                    KeychainService.shared.save(token.data(using: .utf8)!, for: "accessToken")
+                }
+                
+                self.getUserInfo { nickName in
+                    if let nickName = nickName {
+                        KeychainService.shared.save(nickName.data(using: .utf8)!, for: "nickName")
+                    }
+                }
+                
                 let mainVC = MainViewController()
                 mainVC.modalPresentationStyle = .fullScreen
                 self.present(mainVC, animated: true)
@@ -95,18 +111,15 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func getUserInfo() {
-        UserApi.shared.me() {(user, error) in
+    func getUserInfo(completion: @escaping (String?) -> Void) {
+        UserApi.shared.me() { (user, error) in
             if let error = error {
                 print(error)
-            }
-            else {
-                print("me() success.")
-                
-                //do something
-                let userName = user?.kakaoAccount?.name
-                
-                print("이름: \(userName ?? "UserName")")
+                completion(nil)
+            } else {
+                let nickName = user?.kakaoAccount?.profile?.nickname
+                print("이름: \(nickName ?? "UserName")")
+                completion(nickName)
             }
         }
     }
