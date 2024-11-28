@@ -55,6 +55,12 @@ class SearchDetailView: UIView {
         $0.backgroundColor = UIColor(red: 221/255, green: 221/255, blue: 221/255, alpha: 1)
     }
     
+    // 검색 결과 테이블뷰
+    let resultTableView = UITableView().then {
+        $0.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.identifier)
+        $0.separatorStyle = .none
+    }
+    
     
     // MARK: - func
     private func makeStackView() {
@@ -66,7 +72,8 @@ class SearchDetailView: UIView {
         
         [
             searchStackView,
-            lineView
+            lineView,
+            resultTableView
         ].forEach {
             addSubview($0)
         }
@@ -88,6 +95,12 @@ class SearchDetailView: UIView {
             $0.top.equalTo(searchStackView.snp.bottom).offset(11)
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(0.5)
+        }
+        
+        resultTableView.snp.makeConstraints {
+            $0.top.equalTo(lineView.snp.bottom).offset(31)
+            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.bottom.equalTo(safeAreaLayoutGuide)
         }
     }
 
