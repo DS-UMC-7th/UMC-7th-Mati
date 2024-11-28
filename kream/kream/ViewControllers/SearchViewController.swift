@@ -15,10 +15,31 @@ class SearchViewController: UIViewController {
 
         view = searchView
         setupDataSource()
+        setupAction()
     }
     
     private func setupDataSource() {
         searchView.searchCollectionView.dataSource = self
+    }
+    
+    // MARK: - action
+    
+    private func setupAction() {
+        searchView.cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
+        searchView.searchBar.addTarget(self, action: #selector(searchBarTapped), for: .editingDidBegin)
+    }
+    
+    @objc
+    private func cancelButtonTapped() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc
+    private func searchBarTapped() {
+        print("seachBarTapped")
+        let searchVC = SearchDetailViewController()
+        searchVC.modalPresentationStyle = .fullScreen
+        present(searchVC, animated: true)
     }
 
 }
