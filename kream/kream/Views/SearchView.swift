@@ -58,6 +58,17 @@ class SearchView: UIView {
         $0.textColor = .black
     }
     
+    let searchCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
+        $0.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        $0.minimumInteritemSpacing = 8
+        $0.minimumLineSpacing = 12
+
+    }).then {
+        $0.backgroundColor = .clear
+        $0.isScrollEnabled = false
+        $0.register(SearchWordCollectionViewCell.self, forCellWithReuseIdentifier: SearchWordCollectionViewCell.identifier)
+    }
+    
     // MARK: - function
     private func makeStackView() {
         [searchBar,cancelButton].forEach { searchStackView.addArrangedSubview($0) }
@@ -69,7 +80,8 @@ class SearchView: UIView {
         [
             searchStackView,
             lineView,
-            searchTitle
+            searchTitle,
+            searchCollectionView
         ].forEach {
             addSubview($0)
         }
@@ -92,6 +104,12 @@ class SearchView: UIView {
         searchTitle.snp.makeConstraints {
             $0.top.equalTo(lineView.snp.bottom).offset(30)
             $0.left.equalToSuperview().offset(16)
+        }
+        
+        searchCollectionView.snp.makeConstraints {
+            $0.top.equalTo(searchTitle.snp.bottom).offset(11)
+            $0.horizontalEdges.equalToSuperview().inset(15)
+            $0.height.equalTo(76)
         }
     }
 
