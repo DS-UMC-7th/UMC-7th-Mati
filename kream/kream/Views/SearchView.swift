@@ -58,20 +58,38 @@ class SearchView: UIView {
         $0.textColor = .black
     }
     
-    let searchCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
-        $0.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        $0.minimumInteritemSpacing = 8
-        $0.minimumLineSpacing = 12
-
-    }).then {
-        $0.backgroundColor = .clear
-        $0.isScrollEnabled = false
-        $0.register(SearchWordCollectionViewCell.self, forCellWithReuseIdentifier: SearchWordCollectionViewCell.identifier)
-    }
+    lazy var searchCollectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        collectionView.backgroundColor = .clear
+        collectionView.isScrollEnabled = false
+        collectionView.register(SearchWordCollectionViewCell.self, forCellWithReuseIdentifier: SearchWordCollectionViewCell.identifier)
+        return collectionView
+    }()
     
     // MARK: - function
     private func makeStackView() {
         [searchBar,cancelButton].forEach { searchStackView.addArrangedSubview($0) }
+    }
+    
+    private func createLayout() -> UICollectionViewCompositionalLayout {
+        let layoutSize = NSCollectionLayoutSize( // 셀 크기
+            widthDimension: .estimated(0), // 가변 크기
+            heightDimension: .absolute(32) // 정확히 32
+        )
+
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: .init(
+                widthDimension: .fractionalWidth(1.0), // 컬렉션뷰 전체 너비
+                heightDimension: layoutSize.heightDimension
+            ),
+            subitems: [.init(layoutSize: layoutSize)]
+        )
+        group.interItemSpacing = .fixed(8) // 셀 간격
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 12 // 라인 간격
+
+        return UICollectionViewCompositionalLayout(section: section)
     }
     
     private func setView() {
