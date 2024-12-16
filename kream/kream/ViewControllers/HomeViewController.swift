@@ -108,7 +108,7 @@ extension HomeViewController: UICollectionViewDataSource {
             }
             
             let list = ChallengeModel.dummy()
-            cell.imageView.image = list[indexPath.row].image
+            cell.loadImage(from: list[indexPath.row].image)
             cell.idLabel.text = list[indexPath.row].id
             
             return cell
