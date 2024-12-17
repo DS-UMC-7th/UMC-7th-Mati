@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ChallengeCollectionViewCell: UICollectionViewCell {
     static let identifier = "ChallengeCollectionViewCell"
@@ -31,6 +32,12 @@ class ChallengeCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func loadImage(from url: String) {
+        if let imageURL = URL(string: url) {
+            imageView.kf.setImage(with: imageURL)
+        }
     }
     
     private func setupView() {
